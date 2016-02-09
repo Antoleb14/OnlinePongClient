@@ -84,12 +84,6 @@ public class Terrain{
     public int setMatrixValue(double posy, double posx, double newx, double newy, double ballsize) {
         if(posy >= 0 && posx >= 0){
             if(matrix[(int)posy][(int)posx] != null){
-            	Brique b = matrix[(int)posy][(int)posx];
-            	if(b.getNbCoups() == 0){
-            		matrix[(int)posy][(int)posx] = null;
-            	}else{
-            		b.setNbCoups(b.getNbCoups()-1);
-            	}
                 System.out.println("DELETED: ["+(int)posy+"]["+(int)posx+"]");
                 double minx = ((int)posx * 100);
                 double maxx = ((int)posx * 100)+100;
@@ -105,17 +99,27 @@ public class Terrain{
                 if((newx+ballsize/2 <= minx || maxx <= newx+ballsize/2) 
                         && (miny <= (newy+ballsize) && maxy >= (newy+ballsize) || (miny <= newy) && maxy >= (newy))){
                     System.out.println("SIDE");
+                    hitBrick(posx, posy);
                     return Brique.SIDE;
                 }
                 if(((newx >= minx && newx <= maxx) || (newx+ballsize/2 >= minx && newx+ballsize/2 <= maxx)) && miny <= newy+ballsize){
                     System.out.println("TOP");
+                    hitBrick(posx, posy);
                     return Brique.UPSIDE;
                 }                
             }
         }
-        //repaint();
         return -1;
     }
+    
+    private void hitBrick(double posx, double posy) {
+    	Brique b = matrix[(int)posy][(int)posx];
+    	if(b.getNbCoups() <= 1){
+    		matrix[(int)posy][(int)posx] = null;
+    	}else{
+    		b.setNbCoups(b.getNbCoups()-1);
+    	}
+	}
 
     public Vector<Balle> getBalls() {
         return Balls;
