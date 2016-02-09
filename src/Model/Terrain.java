@@ -1,4 +1,4 @@
-package GUI;
+package Model;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -20,14 +20,17 @@ import java.util.Vector;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
+import GUI.VueTerrain;
+
 public class Terrain{
+	
     private Vector<Balle> Balls;
     private VueTerrain drawPanel;
     private Raquette racket;
     private Brique[][] matrix;
     private ArrayList<Raquette> listRackets = new ArrayList<Raquette>();
-    static final int panelWidth = 1000;
-	static final int panelHeight = 800;
+    public static final int panelWidth = 1000;
+	public static final int panelHeight = 800;
        
     private static final String SIDES = null;
     

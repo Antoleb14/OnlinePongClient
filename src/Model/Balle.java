@@ -1,4 +1,4 @@
-package GUI;
+package Model;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -13,7 +13,9 @@ import javax.swing.ImageIcon;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-class Balle extends Thread
+import GUI.VueBalle;
+
+public class Balle extends Thread
 {
    //private Ellipse2D.Double balle; 
    private 	VueBalle balle;

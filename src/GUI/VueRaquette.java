@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 import java.awt.geom.RoundRectangle2D;
 
+import Model.Raquette;
+
 public class VueRaquette implements Vue{
 
 	private RoundRectangle2D.Double thisRacket;

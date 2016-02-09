@@ -22,6 +22,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 import javax.swing.border.Border;
 
+import Model.Balle;
+import Model.Brique;
+import Model.Raquette;
+import Model.Terrain;
+
 public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 
 	private Terrain terrain;

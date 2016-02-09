@@ -21,6 +21,10 @@ import javax.swing.event.CaretListener;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 
+import Model.Balle;
+import Model.Raquette;
+import Model.Terrain;
+
 
 public class StartGui extends JFrame{
 	

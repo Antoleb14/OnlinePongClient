@@ -1,4 +1,4 @@
-package GUI;
+package Model;
 
 import java.awt.Color;
 import java.awt.Dimension;
@@ -11,7 +11,9 @@ import java.awt.geom.RoundRectangle2D;
 import javax.swing.JComponent;
 import javax.swing.JPanel;
 
-class Raquette
+import GUI.VueRaquette;
+
+public class Raquette
 {
    private VueRaquette thisRacket;
    private int width, height;       

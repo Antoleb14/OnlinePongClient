@@ -5,6 +5,8 @@ import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
 
+import Model.Balle;
+
 public class VueBalle implements Vue{
 
 	private Ellipse2D.Double balle;
