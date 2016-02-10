@@ -65,8 +65,8 @@ public class Balle extends Thread
          catch (InterruptedException e)
          {  System.out.println("crash");}
 
-         oldx =  balle.getX();
-         oldy =  balle.getY();
+         oldx =  this.newx;
+         oldy =  this.newy;
          newx = oldx + deltax;
          if (newx < 0){
             deltax = -deltax;
@@ -105,7 +105,7 @@ public class Balle extends Thread
          //if (newy + size > pan.getHeight() || newy < 0)
             //deltay = -deltay;            
          
-         //Envoie  à la vue la nouvelle position de la balle puis repaint le panel
+         //Envoie  ï¿½ la vue la nouvelle position de la balle puis repaint le panel
          balle.setFrame(newx, newy, size, size);
          //a revoir
          pan.paint();
