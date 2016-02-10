@@ -16,16 +16,6 @@ public class Brique {
 	private Rectangle2D.Double brick;
 	private int x, y, width, height, nbCoups;
 	
-	
-	public Brique(JPanel panel, int posX, int posY){
-		width = 100;
-		height = 30;
-		this.x = posX;
-		this.y = posY;
-		nbCoups = (Math.random()*100 > 90?2:1);
-		brick = new Rectangle2D.Double(x, y, width, height);
-	}
-	
 	public void draw(Graphics2D g){
 		if(nbCoups>1)
 			g.setColor(Color.red);

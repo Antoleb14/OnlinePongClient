@@ -8,9 +8,9 @@ public class Main {
 	
     public static void main(String[] args) {
     	
-    	StartGui f = new StartGui();
+    	//StartGui f = new StartGui();
 		//f.getContentPane().add(new JButton("Bouton 3"));
-		f.setVisible(true);
+		//f.setVisible(true);
     	
     	/*BounceBall application = new BounceBall();
         application.addWindowListener(

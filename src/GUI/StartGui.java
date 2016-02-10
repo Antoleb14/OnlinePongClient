@@ -32,13 +32,13 @@ public class StartGui extends JFrame{
 	protected Raquette racket;
 	protected VueTerrain pan;
 	
-    public StartGui(){
+    public StartGui(Terrain terrain){
 	   
        this.setTitle("PONG GAME POPOPO");
        this.setSize(Terrain.panelWidth, Terrain.panelHeight);
        this.setLocationRelativeTo(null);
        this.setResizable(false);
-       Terrain terrain = new Terrain();
+       
        pan = terrain.getVueTerrain();
        add(pan, BorderLayout.NORTH);
        
@@ -60,7 +60,7 @@ public class StartGui extends JFrame{
            {
                String ObjButtons[] = {"Oui mais je rejouerai :(","Non je RESTE !"};
                int PromptResult = JOptionPane.showOptionDialog(null,
-                       "Quitter l'application ?", "Fermer le jeu? pas consseillé :( :( :(",
+                       "Quitter l'application ?", "Fermer le jeu? pas consseillï¿½ :( :( :(",
                        JOptionPane.DEFAULT_OPTION, JOptionPane.WARNING_MESSAGE, null,
                        ObjButtons,ObjButtons[1]);
                if(PromptResult==0)
@@ -70,7 +70,7 @@ public class StartGui extends JFrame{
            }
        });
 
-       this.setContentPane(pan);
+      // this.setContentPane(pan);
        this.setVisible(true);
        
        

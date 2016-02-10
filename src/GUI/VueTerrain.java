@@ -32,7 +32,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	private Terrain terrain;
 	private static Image img = new ImageIcon("bg.jpg").getImage();
 	
-	private Vector<Balle> Balls;
+	private Balle balle;
 	private Raquette racket;
 	private Brique[][] matrix;
 	private ArrayList<Raquette> listRackets = new ArrayList<Raquette>();
@@ -44,20 +44,9 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	    System.out.println("HEIGHT: "+this.getHeight());
 	    
 	    
-	    Balls = terrain.getBalls();
+	    balle = terrain.getBalle();
 		matrix = terrain.getMatrix();
 		racket = terrain.getRackets().get(0);
-		
-		addMouseListener(
-			new MouseAdapter()  {
-				public void mouseClicked(MouseEvent e){
-                   Balle nextBall = new Balle(terrain);
-                   if(Balls.size()<10)
-                	   Balls.addElement(nextBall);
-                   nextBall.start();	                  
-	            }	
-	        }
-        );
 		
 		this.terrain = terrain;
 		// Transparent 16 x 16 pixel cursor image.
@@ -85,23 +74,25 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
         
         Graphics2D g2d = (Graphics2D) g;
         racket.paint(g2d);
-        for (int i = 0; i < Balls.size(); i++) 
+        balle.paint(g2d);
+      /*  for (int i = 0; i < Balls.size(); i++) 
         { 
         	Balle ball = Balls.elementAt(i);
             ball.paint(g2d);
         }
 
-        for(int i=0;i<matrix.length;i++){
+        /*for(int i=0;i<matrix.length;i++){
         	for(int j=0;j<matrix[i].length;j++){
         		if(matrix[i][j] != null)
         			matrix[i][j].draw(g2d);
         	}
-        }
+        }*/
 	}
 	
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		racket.move(arg0.getX());
+		System.out.println("bouge");
 	}
 
 	@Override
