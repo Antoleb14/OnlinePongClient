@@ -21,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JPanel;
 
 import GUI.VueTerrain;
+import Client.Emission;
 
 public class Terrain{
 	
@@ -32,6 +33,7 @@ public class Terrain{
     public static final int panelWidth = 1000;
 	public static final int panelHeight = 800;
 	private Balle balle;
+	private Emission emission;
        
     private static final String SIDES = null;
     
@@ -51,7 +53,12 @@ public class Terrain{
         
         
     }
-    
+    public Emission getEmission(){
+    	return emission;
+    }
+    public void setEmission(Emission e){
+    	emission = e;
+    }
     public ArrayList<Raquette> getRackets(){
         return listRackets;
     }

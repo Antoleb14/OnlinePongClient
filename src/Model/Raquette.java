@@ -23,12 +23,11 @@ public class Raquette
    
    private int startx;
    private int starty;
-   
    public Raquette(Terrain terrain)
    {
 	  pan = terrain;  
       width = 150;
-      height = 10;
+      height = 45;
       
       startx = (int)(Math.random() * Terrain.panelWidth-width);
       starty = Terrain.panelHeight-height;

@@ -98,7 +98,8 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		racket.move(arg0.getX());
-		
+		//MARCHE PO
+		terrain.getEmission().sendRacketPosition(arg0.getX());
 	}
 
 	public ArrayList<Raquette> getRackets() {

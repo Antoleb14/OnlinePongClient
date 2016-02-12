@@ -34,6 +34,7 @@ public class Balle
       balle = new VueBalle(this);
       newx=200;
       newy=200;
+      size=20;
       pan = panel;
    }
 

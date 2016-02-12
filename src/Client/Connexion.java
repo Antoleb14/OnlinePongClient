@@ -39,7 +39,9 @@ public class Connexion implements Runnable {
             out.println(login);
             out.flush();
 
-            tEmission = new Thread(new Emission(out, login));
+            Emission e = new Emission(out, login);
+            terrain.setEmission(e);
+            tEmission = new Thread(e);
             tEmission.start();
             tReception = new Thread(new Reception(in, terrain));
             tReception.start();

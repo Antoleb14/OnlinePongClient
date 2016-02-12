@@ -30,4 +30,12 @@ public class Emission implements Runnable {
             out.flush();
         }
     }
+    
+    public void sendRacketPosition(int x){
+    	System.out.println(x);
+    	out.println("sendracketposition");
+    	out.println(x);
+    	out.flush();
+    	
+    }
 }
