@@ -37,7 +37,6 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	private Balle balle;
 	private Raquette racket;
 	private Brique[][] matrix;
-	private Color[] colors;
 	public VueTerrain(Terrain terrain){
 		setBackground(Color.BLUE);
 		setSize(getPreferredSize());
@@ -46,7 +45,6 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	    
 	    
 	    balle = terrain.getBalle();
-		matrix = terrain.getMatrix();
 		racket = terrain.getRackets().get("moi");
 		
 		this.terrain = terrain;
@@ -88,14 +86,14 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
         { 
         	Balle ball = Balls.elementAt(i);
             ball.paint(g2d);
-        }
-
-        /*for(int i=0;i<matrix.length;i++){
-        	for(int j=0;j<matrix[i].length;j++){
-        		if(matrix[i][j] != null)
-        			matrix[i][j].draw(g2d);
-        	}
         }*/
+        matrix = terrain.getMatrix();
+        for(int j=0;j<matrix.length;j++){
+        	for(int k=0;k<matrix[j].length;k++){
+        		if(matrix[j][k] != null)
+        			matrix[j][k].draw(g2d);
+        	}
+        }
 	}
 	
 	@Override
@@ -116,6 +114,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	public void paint(){
 		repaint();
 	}
+
 	
 	
 }

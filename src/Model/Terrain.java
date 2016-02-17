@@ -39,9 +39,8 @@ public class Terrain{
     private static final String SIDES = null;
     
     public Terrain(){
-    	matrix=new Brique[0][0];
         Balls = new Vector<Balle>();      
-        
+        matrix = new Brique[0][0];
         //this.matrix=m;
         listRackets = new HashMap<String, Raquette>();
         racket = new Raquette(this);
@@ -112,5 +111,18 @@ public class Terrain{
     	
     	paint();
     }
+	
+	public void createMatrice(int x, int y){
+		matrix = new Brique[x][y];
+	}
+	public void setMatrice(int x, int y, int posX, int posY){
+		matrix[x][y] = new Brique(posX, posY);
+	}
+	public void setMatriceNull(int x, int y){
+		matrix[x][y] = null;
+	}
+	public void breakBrick(int x, int y){
+		matrix[x][y] = null;
+	}
     
 }
