@@ -20,19 +20,19 @@ public class Emission implements Runnable {
     }
 
 
-    public void run() {
+   public void run() {
 
-        sc = new Scanner(System.in);
+        /*sc = new Scanner(System.in);
 
         while(true){
             message = sc.nextLine();
             out.println(message);
             out.flush();
-        }
+        }*/
     }
     
     public void sendRacketPosition(int x){
-    	System.out.println(x);
+    	//System.out.println(x);
     	out.println("sendracketposition");
     	out.println(x);
     	out.flush();

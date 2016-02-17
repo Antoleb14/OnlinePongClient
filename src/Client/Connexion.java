@@ -36,6 +36,7 @@ public class Connexion implements Runnable {
             sc = new Scanner(System.in);
             System.out.println(in.readLine());
             login = sc.nextLine();
+           // login = "Keulément";
             out.println(login);
             out.flush();
 

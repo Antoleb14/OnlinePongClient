@@ -22,7 +22,6 @@ public class VueBalle implements Vue{
 		 Graphics2D g2d = (Graphics2D) g;
 		 if (balle != null)
 	      {
-			 System.out.println(balle.getX());
 	         g2d.setColor(Color.RED);
 	         g2d.fill(balle);
 	         //g2d.drawImage(img, (int)newx, (int)newy, size, size, null);
@@ -39,7 +38,6 @@ public class VueBalle implements Vue{
 	}
 
 	public void setFrame(double newx, double newy, int size, int size2) {
-		//System.out.println("SET FRAME "+newx+" : "+newy);
 		balle.setFrame(newx, newy, size, size);
 	}
 }

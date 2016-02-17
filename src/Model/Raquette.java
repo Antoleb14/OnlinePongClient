@@ -59,6 +59,7 @@ public class Raquette
    
    public void setX(int x){
 	   this.posx = x;
+
    }
    
    
@@ -75,8 +76,8 @@ public class Raquette
 		return this.width;
 	}
 
-	public void paint(Graphics2D g2d) {
-		thisRacket.paintComponent(g2d);
+	public void paint(Graphics2D g2d, int i) {
+		thisRacket.paintComponentRaquette(g2d, i);
 	}
 
 }

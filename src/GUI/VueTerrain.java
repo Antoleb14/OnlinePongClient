@@ -15,6 +15,8 @@ import java.awt.event.MouseMotionListener;
 import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Vector;
 
 import javax.swing.BorderFactory;
@@ -35,8 +37,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	private Balle balle;
 	private Raquette racket;
 	private Brique[][] matrix;
-	private ArrayList<Raquette> listRackets = new ArrayList<Raquette>();
-	
+	private Color[] colors;
 	public VueTerrain(Terrain terrain){
 		setBackground(Color.BLUE);
 		setSize(getPreferredSize());
@@ -46,7 +47,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	    
 	    balle = terrain.getBalle();
 		matrix = terrain.getMatrix();
-		racket = terrain.getRackets().get(0);
+		racket = terrain.getRackets().get("moi");
 		
 		this.terrain = terrain;
 		// Transparent 16 x 16 pixel cursor image.
@@ -73,8 +74,16 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
         
         Graphics2D g2d = (Graphics2D) g;
-        racket.paint(g2d);
+        //racket.paint(g2d,0);
         balle.paint(g2d);
+        HashMap<String, Raquette> listRackets = terrain.getRackets();
+        //System.out.println(listRackets.size());
+        int i=0;
+        for(Map.Entry<String, Raquette> entry : listRackets.entrySet()){
+        	Raquette r = entry.getValue();
+        	r.paint(g2d,i);
+        	i++;
+        }
       /*  for (int i = 0; i < Balls.size(); i++) 
         { 
         	Balle ball = Balls.elementAt(i);
@@ -92,19 +101,17 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	@Override
 	public void mouseDragged(MouseEvent arg0) {
 		racket.move(arg0.getX());
-		System.out.println("bouge");
 	}
 
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		racket.move(arg0.getX());
 		//MARCHE PO
-		terrain.getEmission().sendRacketPosition(arg0.getX());
+		//System.out.println("arg0.getX : "+ arg0.getX());
+		int posX = arg0.getX() - (racket.getSize()/2);
+		terrain.getEmission().sendRacketPosition(posX);
 	}
 
-	public ArrayList<Raquette> getRackets() {
-		return listRackets;
-	}
 	
 	public void paint(){
 		repaint();

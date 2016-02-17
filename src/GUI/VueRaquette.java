@@ -12,18 +12,26 @@ public class VueRaquette implements Vue{
 
 	private RoundRectangle2D.Double thisRacket;
 	private Raquette racket;
+	private Color[] colors;
 	
 	public VueRaquette(Raquette racket){
 		this.racket = racket;
 		thisRacket = new RoundRectangle2D.Double(racket.getStartX(), racket.getStartY(), racket.getWidth(), racket.getHeight(), 5, 5);
+		colors = new Color[4];
+		colors[0] = Color.red;
+		colors[1] = Color.blue;
+		colors[2] = Color.yellow;
+		colors[3] = Color.green;
 	}
 	
 	@Override
-	public void paintComponent(Graphics g) {
+	public void paintComponent(Graphics g){}
+	
+	public void paintComponentRaquette(Graphics g, int i) {
 		Graphics2D g2d = (Graphics2D) g;
 	  if (thisRacket != null)
       {
-         g2d.setColor(Color.BLACK);
+         g2d.setColor(colors[i]);
          g2d.fill(thisRacket);
       }
 		
