@@ -45,7 +45,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	    
 	    
 	    balle = terrain.getBalle();
-		racket = terrain.getRackets().get("moi");
+		racket = terrain.getRackets().get("Player");
 		
 		this.terrain = terrain;
 		// Transparent 16 x 16 pixel cursor image.

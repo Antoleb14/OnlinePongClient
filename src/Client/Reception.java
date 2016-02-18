@@ -4,6 +4,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.util.HashMap;
 
+import GUI.StartGui;
 import Model.Raquette;
 import Model.Terrain;
 
@@ -13,9 +14,11 @@ public class Reception implements Runnable {
     private BufferedReader in;
     private String message = null;
     private Terrain terrain=null;
-    public Reception(BufferedReader in, Terrain t){
+    private StartGui startGui;
+    public Reception(BufferedReader in, Terrain t, StartGui s){
         this.in = in;
         terrain=t;
+        startGui = s;
     }
 
     public synchronized void run() {
@@ -31,7 +34,6 @@ public class Reception implements Runnable {
                 	case "balle":
                 		double x=Double.parseDouble(in.readLine());
                 		double y=Double.parseDouble(in.readLine());
-                		System.out.println("Balle "+x+" : "+y);
                 		terrain.moveBall(x,y);
                 		break;
                 	case "newConnexion":
@@ -44,10 +46,10 @@ public class Reception implements Runnable {
                 	case "moveRaquette":
                 		login = in.readLine();
                 		String posX = in.readLine();
-                		System.out.println("Move de "+login+ " en "+posX);
                 		terrain.moveRacket(login, posX);
                 		break;
                 	case "depart":
+                		
                 		login = in.readLine();
                 		terrain.getRackets().remove(login);
                 		System.out.println(login+ " s'est barré");
@@ -72,6 +74,14 @@ public class Reception implements Runnable {
                 		String xb = in.readLine();
                 		String yb = in.readLine();
                 		terrain.breakBrick(Integer.parseInt(xb), Integer.parseInt(yb));
+                		break;
+                	case "newPoint":
+                		String buteur = in.readLine();
+                		int score = Integer.parseInt(in.readLine());
+                		System.out.println(buteur+" il a marqué!");
+                		Raquette player = terrain.getRackets().get(buteur);
+                		player.setScore(score);
+                		startGui.updatePlayersList();
                 		break;
                 }
 

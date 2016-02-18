@@ -44,7 +44,7 @@ public class Terrain{
         //this.matrix=m;
         listRackets = new HashMap<String, Raquette>();
         racket = new Raquette(this);
-		listRackets.put("moi", racket);
+		listRackets.put("Player", racket);
 		balle = new Balle(this);       
 		drawPanel = new VueTerrain(this);
         racket.move(500);
@@ -56,9 +56,11 @@ public class Terrain{
     public Emission getEmission(){
     	return emission;
     }
+    
     public void setEmission(Emission e){
     	emission = e;
     }
+    
     public HashMap<String, Raquette> getRackets(){
         return listRackets;
     }
@@ -70,6 +72,7 @@ public class Terrain{
     public void addRaquette (String login, Raquette r){
     	listRackets.put(login, r);
     }
+    
     public int countBalls() {
         return Balls.size();
     }
@@ -107,7 +110,7 @@ public class Terrain{
     
     public void moveRacket(String login, String posX){
     	Raquette r = listRackets.get(login);
-    	r.move(Integer.parseInt(posX));
+    	r.move(Integer.parseInt(posX)+r.getWidth()/2);
     	
     	paint();
     }
@@ -123,6 +126,12 @@ public class Terrain{
 	}
 	public void breakBrick(int x, int y){
 		matrix[x][y] = null;
+	}
+	
+	public void editRaquette(String login) {
+		Raquette r = listRackets.get("Player");
+		listRackets.remove("Player");
+		listRackets.put(login, r);
 	}
     
 }

@@ -18,8 +18,10 @@ public class Raquette
    private VueRaquette thisRacket;
    private int width, height;       
    private Terrain pan;
+   private int score = 0;
    
-   private int posx;
+
+private int posx;
    
    private int startx;
    private int starty;
@@ -27,7 +29,7 @@ public class Raquette
    {
 	  pan = terrain;  
       width = 150;
-      height = 45;
+      height = 10;
       
       startx = (int)(Math.random() * Terrain.panelWidth-width);
       starty = Terrain.panelHeight-height;
@@ -80,4 +82,11 @@ public class Raquette
 		thisRacket.paintComponentRaquette(g2d, i);
 	}
 
+	public int getScore() {
+		return score;
+	}
+
+	public void setScore(int score) {
+		this.score = score;
+	}
 }

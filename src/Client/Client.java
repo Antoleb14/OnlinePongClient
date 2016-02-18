@@ -12,22 +12,21 @@ import Model.Terrain;
 public class Client {
 
     public static Socket socket = null;
-    public static Thread tConnexion;
 
     public static void main(String[] args) {
     	
         try {
 
             System.out.println("Demande de connexion");
-            socket = new Socket("192.168.0.12",2009);
-            System.out.println("Connexion établie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connecté
+            socket = new Socket("192.168.43.95",2009);
+            System.out.println("Connexion �tablie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connecté
 
             Terrain terrain = new Terrain();
             
-            tConnexion = new Thread(new Connexion(socket, terrain));
-            tConnexion.start();
+            Connexion connect = new Connexion(socket, terrain);
+            //tConnexion.start();
             
-            StartGui f = new StartGui(terrain);
+            StartGui f = new StartGui(terrain, connect);
     		//f.getContentPane().add(new JButton("Bouton 3"));
     		f.setVisible(true);
     		
