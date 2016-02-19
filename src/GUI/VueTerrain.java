@@ -72,21 +72,14 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
         g.drawImage(img, 0, 0, this.getWidth(), this.getHeight(), null);
         
         Graphics2D g2d = (Graphics2D) g;
-        //racket.paint(g2d,0);
         balle.paint(g2d);
         HashMap<String, Raquette> listRackets = terrain.getRackets();
-        //System.out.println(listRackets.size());
         int i=0;
         for(Map.Entry<String, Raquette> entry : listRackets.entrySet()){
         	Raquette r = entry.getValue();
         	r.paint(g2d,i);
         	i++;
         }
-      /*  for (int i = 0; i < Balls.size(); i++) 
-        { 
-        	Balle ball = Balls.elementAt(i);
-            ball.paint(g2d);
-        }*/
         matrix = terrain.getMatrix();
         for(int j=0;j<matrix.length;j++){
         	for(int k=0;k<matrix[j].length;k++){

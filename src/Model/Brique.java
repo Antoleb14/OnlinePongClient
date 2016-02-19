@@ -9,25 +9,27 @@ import java.awt.geom.RoundRectangle2D;
 
 import javax.swing.JPanel;
 
+import GUI.StartGui;
+
 public class Brique {
 	
 	public static final int UPSIDE = 0;
 	public static final int SIDE = 1;
 	private Rectangle2D.Double brick;
 	private int x, y, width, height, nbCoups;
-	
-	public Brique(int posX, int posY){
+	public static Color[] colors = {Color.green, Color.yellow, Color.red};
+	public Brique(int posX, int posY, int nbc){
 		width = 100;
 		height = 30;
 		x= posX;
 		y = posY;
+		System.out.println(nbc);
+		nbCoups = nbc;
 		brick = new Rectangle2D.Double(x, y, width, height);
 	}
 	public void draw(Graphics2D g){
-		if(nbCoups>1)
-			g.setColor(Color.red);
-		else
-			g.setColor(Color.orange);
+
+		g.setColor(colors[nbCoups-1]);
 		g.fill(brick);
 		g.setPaint(Color.black);
 		g.draw(brick);

@@ -18,7 +18,7 @@ public class Client {
         try {
 
             System.out.println("Demande de connexion");
-            socket = new Socket("192.168.43.95",2009);
+            socket = new Socket("192.168.0.12",2009);
             System.out.println("Connexion Ètablie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connect√©
 
             Terrain terrain = new Terrain();

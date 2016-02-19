@@ -89,4 +89,8 @@ private int posx;
 	public void setScore(int score) {
 		this.score = score;
 	}
+	
+	public Boolean isItPlayerRaquette(){
+		return this.equals(pan.getPlayerRacket());
+	}
 }

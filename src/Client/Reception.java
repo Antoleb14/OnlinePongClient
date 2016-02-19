@@ -38,10 +38,17 @@ public class Reception implements Runnable {
                 		break;
                 	case "newConnexion":
                 		login = in.readLine();
+                		String scoreConnexion = in.readLine();
+                		String posXConnexion = in.readLine();
                 		r = new Raquette(terrain);
+                		r.setScore(Integer.parseInt(scoreConnexion));
                 		terrain.addRaquette(login, r);
-                		System.out.println("Nouveau joueur ! :"+ login);
-                		terrain.paint();
+                		startGui.updatePlayersList();
+                		if(posXConnexion.equals("null")){
+                			terrain.paint();
+                		}else {
+                			terrain.moveRacket(login, posXConnexion);
+                		}
                 		break;
                 	case "moveRaquette":
                 		login = in.readLine();
@@ -52,6 +59,7 @@ public class Reception implements Runnable {
                 		
                 		login = in.readLine();
                 		terrain.getRackets().remove(login);
+                		startGui.updatePlayersList();
                 		System.out.println(login+ " s'est barré");
                 		break;
                 	case "createMatrice":
@@ -64,16 +72,18 @@ public class Reception implements Runnable {
                 		String yc = in.readLine();
                 		String posXc = in.readLine();
                 		String posYc = in.readLine();
+                		String nbCoupsc = in.readLine();
                 		if(posXc.equals("brickRemoved")){
                 			terrain.setMatriceNull(Integer.parseInt(xc), Integer.parseInt(yc));
                 		} else {
-                    		terrain.setMatrice(Integer.parseInt(xc), Integer.parseInt(yc), Integer.parseInt(posXc), Integer.parseInt(posYc));
+                    		terrain.setMatrice(Integer.parseInt(xc), Integer.parseInt(yc), Integer.parseInt(posXc), Integer.parseInt(posYc), Integer.parseInt(nbCoupsc));
                 		}
                 		break;
                 	case "breackBrick":
                 		String xb = in.readLine();
                 		String yb = in.readLine();
-                		terrain.breakBrick(Integer.parseInt(xb), Integer.parseInt(yb));
+                		String nbCoups = in.readLine();
+                		terrain.breakBrick(Integer.parseInt(xb), Integer.parseInt(yb),  Integer.parseInt(nbCoups));
                 		break;
                 	case "newPoint":
                 		String buteur = in.readLine();

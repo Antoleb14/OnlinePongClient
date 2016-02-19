@@ -1,6 +1,9 @@
 package GUI;
 
+import java.awt.AlphaComposite;
+import java.awt.BasicStroke;
 import java.awt.Color;
+import java.awt.Composite;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.geom.Ellipse2D;
@@ -12,16 +15,11 @@ public class VueRaquette implements Vue{
 
 	private RoundRectangle2D.Double thisRacket;
 	private Raquette racket;
-	private Color[] colors;
 	
 	public VueRaquette(Raquette racket){
 		this.racket = racket;
 		thisRacket = new RoundRectangle2D.Double(racket.getStartX(), racket.getStartY(), racket.getWidth(), racket.getHeight(), 5, 5);
-		colors = new Color[4];
-		colors[0] = Color.red;
-		colors[1] = Color.blue;
-		colors[2] = Color.yellow;
-		colors[3] = Color.green;
+
 	}
 	
 	@Override
@@ -31,8 +29,17 @@ public class VueRaquette implements Vue{
 		Graphics2D g2d = (Graphics2D) g;
 	  if (thisRacket != null)
       {
-         g2d.setColor(colors[i]);
+		 Composite c = g2d.getComposite();
+		 if(!racket.isItPlayerRaquette()){
+			 g2d.setComposite(AlphaComposite.getInstance(AlphaComposite.SRC_OVER,0.3f));
+		 }
+		 
+
+		 
+         g2d.setColor(StartGui.colors[i]);
+        
          g2d.fill(thisRacket);
+         g2d.setComposite(c);
       }
 		
 	}

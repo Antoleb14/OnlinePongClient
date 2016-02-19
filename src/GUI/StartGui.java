@@ -43,7 +43,8 @@ public class StartGui extends JFrame{
 	private Terrain terrain;
 	public static final int WIDTH = Terrain.panelWidth + 250;
 	public static final int HEIGHT = Terrain.panelHeight;
-	
+	public static Color[] colors = {Color.red, Color.blue, Color.pink, Color.green, Color.cyan, Color.magenta, Color.orange};
+   
     public StartGui(Terrain terrain, Connexion connect){
        this.terrain = terrain;
 	   this.connect = connect;
@@ -63,8 +64,7 @@ public class StartGui extends JFrame{
        Font font1 = new Font("SansSerif", Font.BOLD, 40);
        
      
-       
-       
+		
        
        scorePanel = new JPanel();
        //scorePanel.setBackground(Color.LIGHT_GRAY);
@@ -136,11 +136,13 @@ public class StartGui extends JFrame{
     
     public void updatePlayersList(){
     	scorePanel.removeAll();
-    	
+    	int i=0;
     	for(Map.Entry<String, Raquette> entry : terrain.getRackets().entrySet()){
 			JLabel lab = new JLabel(entry.getKey()+"  "+entry.getValue().getScore());
 			lab.setFont(new Font(lab.getFont().getName(), Font.PLAIN, 20));
+			lab.setForeground(colors[i]);
 			scorePanel.add(lab);
+			i++;
         }
     	scorePanel.validate();
     	scorePanel.repaint();

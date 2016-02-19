@@ -118,20 +118,29 @@ public class Terrain{
 	public void createMatrice(int x, int y){
 		matrix = new Brique[x][y];
 	}
-	public void setMatrice(int x, int y, int posX, int posY){
-		matrix[x][y] = new Brique(posX, posY);
+	public void setMatrice(int x, int y, int posX, int posY, int nbCoups){
+		matrix[x][y] = new Brique(posX, posY, nbCoups);
 	}
 	public void setMatriceNull(int x, int y){
 		matrix[x][y] = null;
 	}
-	public void breakBrick(int x, int y){
-		matrix[x][y] = null;
+	public void breakBrick(int x, int y, int nbCoups){
+		if(nbCoups == 0){
+			matrix[x][y] = null;
+		} else {
+			matrix[x][y].setNbCoups(nbCoups);
+		}
+		
 	}
 	
 	public void editRaquette(String login) {
 		Raquette r = listRackets.get("Player");
 		listRackets.remove("Player");
 		listRackets.put(login, r);
+	}
+	public Raquette getPlayerRacket() {
+		// TODO Auto-generated method stub
+		return racket;
 	}
     
 }
