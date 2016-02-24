@@ -9,7 +9,7 @@ public class Brique {
 	public static final int UPSIDE = 0;
 	public static final int SIDE = 1;
 	private int x, y, width, height, nbCoups;
-	public static Color[] colors = {Color.green, Color.yellow, Color.red};
+	public static Color[] colors = {Color.yellow, Color.orange, Color.red};
 	private VueBrique drawBrique;
 	
 	public Brique(int posX, int posY, int nbc){
@@ -17,7 +17,6 @@ public class Brique {
 		height = 30;
 		x= posX;
 		y = posY;
-		System.out.println(nbc);
 		nbCoups = nbc;
 		drawBrique = new VueBrique(x, y, width, height);
 	}
