@@ -27,16 +27,15 @@ public class Reception implements Runnable {
             try {
 
                 message = in.readLine();
-                //System.out.println(message);
                 String login;
                 Raquette r;
                 switch(message){
-                	case "balle":
+                	case "balle": //Le serveur renvoi les mouvements de la balle
                 		double x=Double.parseDouble(in.readLine());
                 		double y=Double.parseDouble(in.readLine());
                 		terrain.moveBall(x,y);
                 		break;
-                	case "newConnexion":
+                	case "newConnexion": //Un nouveau joueur a été detecté
                 		login = in.readLine();
                 		String scoreConnexion = in.readLine();
                 		String posXConnexion = in.readLine();
@@ -50,24 +49,22 @@ public class Reception implements Runnable {
                 			terrain.moveRacket(login, posXConnexion);
                 		}
                 		break;
-                	case "moveRaquette":
+                	case "moveRaquette": //Un joueur a bougé sa raquette
                 		login = in.readLine();
                 		String posX = in.readLine();
                 		terrain.moveRacket(login, posX);
                 		break;
-                	case "depart":
-                		
+                	case "depart": //Un joueur est parti
                 		login = in.readLine();
                 		terrain.getRackets().remove(login);
                 		startGui.updatePlayersList();
-                		System.out.println(login+ " s'est barré");
                 		break;
-                	case "createMatrice":
+                	case "createMatrice": //On instancie la matrice des briques
                 		String xm = in.readLine();
                 		String ym = in.readLine();
                 		terrain.createMatrice(Integer.parseInt(xm), Integer.parseInt(ym));
                 		break;
-                	case "newCoord":
+                	case "newCoord": //On set une brique de coordonnée i,j dans la matrice
                 		String xc = in.readLine();
                 		String yc = in.readLine();
                 		String posXc = in.readLine();
@@ -79,16 +76,15 @@ public class Reception implements Runnable {
                     		terrain.setMatrice(Integer.parseInt(xc), Integer.parseInt(yc), Integer.parseInt(posXc), Integer.parseInt(posYc), Integer.parseInt(nbCoupsc));
                 		}
                 		break;
-                	case "breackBrick":
+                	case "breackBrick": //Une brique a été heurté
                 		String xb = in.readLine();
                 		String yb = in.readLine();
                 		String nbCoups = in.readLine();
                 		terrain.breakBrick(Integer.parseInt(xb), Integer.parseInt(yb),  Integer.parseInt(nbCoups));
                 		break;
-                	case "newPoint":
+                	case "newPoint": //Un joueur a marqué un point
                 		String buteur = in.readLine();
                 		int score = Integer.parseInt(in.readLine());
-                		System.out.println(buteur+" il a marqué!");
                 		Raquette player = terrain.getRackets().get(buteur);
                 		player.setScore(score);
                 		startGui.updatePlayersList();

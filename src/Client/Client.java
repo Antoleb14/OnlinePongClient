@@ -16,16 +16,16 @@ public class Client {
     public static void main(String[] args) {
     	
         try {
-
-            System.out.println("Demande de connexion");
-            socket = new Socket("192.168.0.12",2009);
-            System.out.println("Connexion Ètablie avec le serveur, authentification :"); // Si le message s'affiche c'est que je suis connect√©
-
+        	
+        	//On se connecte au serveur
+            socket = new Socket("127.0.0.1",2009);
+           
+            //On instancie le terrain
             Terrain terrain = new Terrain();
             
             Connexion connect = new Connexion(socket, terrain);
-            //tConnexion.start();
             
+            //On instancie la vue
             StartGui f = new StartGui(terrain, connect);
     		//f.getContentPane().add(new JButton("Bouton 3"));
     		f.setVisible(true);

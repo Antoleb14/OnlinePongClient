@@ -6,12 +6,11 @@ import java.util.Scanner;
 import java.util.Timer;
 
 
-public class Emission implements Runnable {
+public class Emission {
 
     private PrintWriter out;
     private String login = null;
-    private String message = null;
-    private Scanner sc = null;
+
 
     public Emission(PrintWriter out, String login) {
         this.out = out;
@@ -19,20 +18,8 @@ public class Emission implements Runnable {
 
     }
 
-
-   public void run() {
-
-        /*sc = new Scanner(System.in);
-
-        while(true){
-            message = sc.nextLine();
-            out.println(message);
-            out.flush();
-        }*/
-    }
     
     public void sendRacketPosition(int x){
-    	//System.out.println(x);
     	out.println("sendracketposition");
     	out.println(x);
     	out.flush();

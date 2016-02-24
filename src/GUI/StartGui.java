@@ -3,27 +3,13 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
-import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.GridBagConstraints;
-import java.awt.GridBagLayout;
-import java.awt.Insets;
-import java.awt.RenderingHints;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.util.Map;
-import java.util.Vector;
-
 import javax.swing.*;
-import javax.swing.event.CaretEvent;
-import javax.swing.event.CaretListener;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-
 import Client.Connexion;
 import Model.Balle;
 import Model.Raquette;
@@ -53,21 +39,14 @@ public class StartGui extends JFrame{
        this.setSize(WIDTH, HEIGHT);
        this.setLocationRelativeTo(null);
        this.setResizable(false);
-       //this.setLayout(null);
        
        pan = terrain.getVueTerrain();
        add(pan, BorderLayout.EAST);
-       
-       //Thread t = new Thread(pan);
-       //t.start();
-      
-       Font font1 = new Font("SansSerif", Font.BOLD, 40);
        
      
 		
        
        scorePanel = new JPanel();
-       //scorePanel.setBackground(Color.LIGHT_GRAY);
 	   scorePanel.setSize(new Dimension(250, Terrain.panelHeight));
 	   scorePanel.setMinimumSize(new Dimension(250, Terrain.panelHeight));
 	   scorePanel.setBounds(0,0,250,Terrain.panelHeight);
@@ -99,9 +78,6 @@ public class StartGui extends JFrame{
 	   
        add(scorePanel);
      
-       
-       //firstField.setText(firstDevise);
-       //secondField.setText(secondDevise);
        this.setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
        addWindowListener(new WindowAdapter() {
            @Override

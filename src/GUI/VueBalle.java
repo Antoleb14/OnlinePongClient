@@ -10,10 +10,8 @@ import Model.Balle;
 public class VueBalle implements Vue{
 
 	private Ellipse2D.Double balle;
-	private Balle ball;
 	
 	public VueBalle(Balle ball){
-		this.ball = ball;
 		balle = new Ellipse2D.Double(500, 500, ball.getSize(), ball.getSize());
 	}
 	
@@ -24,7 +22,6 @@ public class VueBalle implements Vue{
 	      {
 	         g2d.setColor(Color.RED);
 	         g2d.fill(balle);
-	         //g2d.drawImage(img, (int)newx, (int)newy, size, size, null);
 	      }
 		
 	}

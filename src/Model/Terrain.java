@@ -1,25 +1,7 @@
 package Model;
 
-import java.awt.BasicStroke;
-import java.awt.Color;
-import java.awt.Cursor;
-import java.awt.Dimension;
-import java.awt.Graphics;
-import java.awt.Graphics2D;
-import java.awt.Image;
-import java.awt.Point;
-import java.awt.RenderingHints;
-import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
-import java.awt.event.MouseMotionListener;
-import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Vector;
-
-import javax.swing.ImageIcon;
-import javax.swing.JPanel;
 
 import GUI.VueTerrain;
 import Client.Emission;
@@ -35,21 +17,16 @@ public class Terrain{
 	public static final int panelHeight = 800;
 	private Balle balle;
 	private Emission emission;
-       
-    private static final String SIDES = null;
     
     public Terrain(){
         Balls = new Vector<Balle>();      
         matrix = new Brique[0][0];
-        //this.matrix=m;
         listRackets = new HashMap<String, Raquette>();
         racket = new Raquette(this);
 		listRackets.put("Player", racket);
 		balle = new Balle(this);       
 		drawPanel = new VueTerrain(this);
         racket.move(500);
-        
-        //Balls.addElement(balle);
         
         
     }
@@ -139,7 +116,6 @@ public class Terrain{
 		listRackets.put(login, r);
 	}
 	public Raquette getPlayerRacket() {
-		// TODO Auto-generated method stub
 		return racket;
 	}
     

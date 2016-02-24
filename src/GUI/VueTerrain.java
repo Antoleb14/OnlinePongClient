@@ -1,7 +1,6 @@
 package GUI;
 
 import java.awt.Color;
-import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.Dimension;
 import java.awt.Graphics;
@@ -9,20 +8,13 @@ import java.awt.Graphics2D;
 import java.awt.Image;
 import java.awt.Point;
 import java.awt.Toolkit;
-import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseMotionListener;
-import java.awt.geom.RoundRectangle2D;
 import java.awt.image.BufferedImage;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.Vector;
-
-import javax.swing.BorderFactory;
 import javax.swing.ImageIcon;
 import javax.swing.JPanel;
-import javax.swing.border.Border;
 
 import Model.Balle;
 import Model.Brique;
@@ -40,9 +32,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	public VueTerrain(Terrain terrain){
 		setBackground(Color.BLUE);
 		setSize(getPreferredSize());
-	    setLayout(null);
-	    System.out.println("HEIGHT: "+this.getHeight());
-	    
+	    setLayout(null);	    
 	    
 	    balle = terrain.getBalle();
 		racket = terrain.getRackets().get("Player");
@@ -97,8 +87,6 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	@Override
 	public void mouseMoved(MouseEvent arg0) {
 		racket.move(arg0.getX());
-		//MARCHE PO
-		//System.out.println("arg0.getX : "+ arg0.getX());
 		int posX = arg0.getX() - (racket.getSize()/2);
 		terrain.getEmission().sendRacketPosition(posX);
 	}
