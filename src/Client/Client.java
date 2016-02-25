@@ -7,7 +7,7 @@ import Model.Terrain;
 
 /**
  * Classe main du client
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Client {
 

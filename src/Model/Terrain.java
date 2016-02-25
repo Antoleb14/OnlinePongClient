@@ -8,7 +8,7 @@ import Client.Emission;
 
 /**
  * Classe Terrain du modèle
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Terrain{
 	
@@ -56,7 +56,7 @@ public class Terrain{
 
     /**
      * Récupère la liste des raquettes (joueurs) en train de jouer actuellement
-     * @return HashMap<String, Raquette> la liste des raquettes
+     * @return HashMap la liste des raquettes
      */
     public HashMap<String, Raquette> getRackets(){
         return listRackets;

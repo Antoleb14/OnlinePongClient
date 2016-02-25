@@ -10,7 +10,7 @@ import Model.Raquette;
 
 /**
  * Vue d'une raquette
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class VueRaquette implements Vue{
 

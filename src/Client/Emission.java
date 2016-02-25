@@ -7,7 +7,7 @@ import java.util.Timer;
 
 /**
  * Classe d'émission pour envoyer des données au serveur
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Emission {
 

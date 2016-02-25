@@ -6,7 +6,7 @@ import GUI.VueBalle;
 
 /**
  * Classe Balle du modèle
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Balle
 {

@@ -6,7 +6,7 @@ import GUI.VueBrique;
 
 /**
  * Classe brique du modèle
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Brique {
 	

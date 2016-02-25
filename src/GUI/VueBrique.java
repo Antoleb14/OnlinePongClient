@@ -5,7 +5,7 @@ import java.awt.geom.Rectangle2D;
 
 /**
  * Classe de la vue d'une brique
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class VueBrique implements Vue {
 

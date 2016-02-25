@@ -10,7 +10,7 @@ import Model.Terrain;
 
 /**
  * Thread de réception des données du serveur
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class Reception implements Runnable {
 

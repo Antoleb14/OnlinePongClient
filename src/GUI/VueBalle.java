@@ -9,7 +9,7 @@ import Model.Balle;
 
 /**
  * Vue d'une Balle
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class VueBalle implements Vue{
 

@@ -17,7 +17,7 @@ import Model.Terrain;
 
 /**
  * Classe JFrame de l'application
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 
 public class StartGui extends JFrame{

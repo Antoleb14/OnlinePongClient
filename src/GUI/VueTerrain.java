@@ -23,7 +23,7 @@ import Model.Terrain;
 
 /**
  * Classe de la vue du terrain
- * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez et Nicolas Belleme
  */
 public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 
@@ -93,7 +93,7 @@ public class VueTerrain extends JPanel implements Vue, MouseMotionListener {
 	}
 
 	/**
-	 * Gestion du drag&drop sur la raquette
+	 * Gestion du draganddrop sur la raquette
 	 * @param arg0 MouseEvent
      */
 	@Override
