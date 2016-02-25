@@ -15,6 +15,10 @@ import Model.Balle;
 import Model.Raquette;
 import Model.Terrain;
 
+/**
+ * Classe JFrame de l'application
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ */
 
 public class StartGui extends JFrame{
 	
@@ -30,7 +34,12 @@ public class StartGui extends JFrame{
 	public static final int WIDTH = Terrain.panelWidth + 250;
 	public static final int HEIGHT = Terrain.panelHeight;
 	public static Color[] colors = {Color.red, Color.blue, Color.pink, Color.green, Color.cyan, Color.magenta, Color.orange};
-   
+
+	/**
+	 * Constructeur de la fenêtre principale de l'application
+	 * @param terrain Terrain de jeu
+	 * @param connect Classe Connexion pour pouvoir appeler la méthode de login
+     */
     public StartGui(Terrain terrain, Connexion connect){
        this.terrain = terrain;
 	   this.connect = connect;
@@ -43,9 +52,6 @@ public class StartGui extends JFrame{
        pan = terrain.getVueTerrain();
        add(pan, BorderLayout.EAST);
        
-     
-		
-       
        scorePanel = new JPanel();
 	   scorePanel.setSize(new Dimension(250, Terrain.panelHeight));
 	   scorePanel.setMinimumSize(new Dimension(250, Terrain.panelHeight));
@@ -56,7 +62,7 @@ public class StartGui extends JFrame{
 	   loginPan.setLayout(new BoxLayout(loginPan, BoxLayout.PAGE_AXIS));
 	   JLabel label = new JLabel("Entrez votre login:");
 	   label.setFont(new Font(label.getFont().getName(), Font.PLAIN, 20));
-	   labelerror = new JLabel("Ce pseudo est d�j� utilis�");
+	   labelerror = new JLabel("Ce pseudo est d�j� utilis�");
 	   labelerror.setFont(new Font(label.getFont().getName(), Font.PLAIN, 20));
 	   labelerror.setForeground(Color.red);
 	   labelerror.setVisible(false);
@@ -100,16 +106,26 @@ public class StartGui extends JFrame{
        
        
    }
-   
+
+	/**
+	 * Méthode pour afficher une erreur de login
+	 */
     public void setErrorlabel(){
     	labelerror.setVisible(true);
     }
-    
+
+    /**
+	 * Méthode pour masquer le panel de login d'un utilisateur lorsqu'il est connecté
+	 */
     public void hideLoginPanel() {
     	loginPan.setVisible(false);
     	
     }
-    
+
+	/**
+	 * Méthode de mise à jour des scores des joueurs
+	 * return void
+	 */
     public void updatePlayersList(){
     	scorePanel.removeAll();
     	int i=0;
@@ -123,8 +139,11 @@ public class StartGui extends JFrame{
     	scorePanel.validate();
     	scorePanel.repaint();
     }
-    
-   class BoutonListener implements ActionListener{
+
+    /**
+	 * Classe interne de gestion des listener sur notre bouton de login
+	 */
+    class BoutonListener implements ActionListener{
 	   public BoutonListener(){
 		   super();	   
 	   }
@@ -134,6 +153,6 @@ public class StartGui extends JFrame{
     	   System.out.println(login.getText());
     	   connect.sendLogin(login.getText());
        }
-   }
+    }
 
 }

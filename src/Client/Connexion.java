@@ -1,8 +1,4 @@
 package Client;
-
-/**
- * Created by Clement on 21/01/2016.
- */
 import java.net.*;
 import GUI.StartGui;
 import Model.Raquette;
@@ -10,6 +6,10 @@ import Model.Terrain;
 
 import java.io.*;
 
+/**
+ * Classe pour se connecter au serveur via la socket
+ * @author Antoine Lebel, Guillaume Brosse, ClÃ©ment LeBiez & Nicolas Belleme
+ */
 public class Connexion {
 
     private Socket socket = null;
@@ -20,30 +20,43 @@ public class Connexion {
     private BufferedReader in = null;
     private Terrain terrain=null;
     private StartGui startGui;
-    
+
+    /**
+     * Constructeur de classe
+     * @param s une socket
+     * @param t un terrain de jeu
+     */
     public Connexion(Socket s, Terrain t){
         socket = s;
         terrain=t;
     }
-    
+
+    /**
+     * Setter pour lier notre fenÃªtre Ã  la connexion, sert notamment pour les messages d'erreur et l'update de la liste des scores.
+     * @param s FenÃªtre JFrame de l'application
+     */
     public void setStartGUI(StartGui s){
     	startGui = s;
     }
 
+    /**
+     * MÃ©thode pour demander au serveur de se connecter
+     * @param login Nom d'utilisateur du joueur
+     */
     public void sendLogin(String login) {
         try {
 
-        	//out sert à écrire au serveur
+        	//out sert ï¿½ ï¿½crire au serveur
             out = new PrintWriter(socket.getOutputStream());
             
-            //in sert à lire ce que le serveur renvoi
+            //in sert ï¿½ lire ce que le serveur renvoi
             in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
             
             //On envoi le login
             out.println(login);
             out.flush();
             
-            //On attend la response du serveur pour savoir si le login est accepté
+            //On attend la response du serveur pour savoir si le login est acceptï¿½
             String message = in.readLine();
             if(message.equals("loginOk")){
             	//Si le serveur accepte la connexion
@@ -53,7 +66,7 @@ public class Connexion {
         		startGui.updatePlayersList();
             	terrain.setEmission(e);
             	
-            	//Le thread Reception sert à récupérer ce que le serveur renvoi
+            	//Le thread Reception sert ï¿½ rï¿½cupï¿½rer ce que le serveur renvoi
             	tReception = new Thread(new Reception(in, terrain, startGui));
             	tReception.start();
             	
@@ -61,11 +74,11 @@ public class Connexion {
             	startGui.hideLoginPanel();
             }else {
             	
-            	//Si le serveur répond que le login n'est pas OK, alors on affiche une erreur
+            	//Si le serveur rï¿½pond que le login n'est pas OK, alors on affiche une erreur
             	startGui.setErrorlabel();
             }
         } catch (IOException e) {
-            System.err.println("Le serveur ne répond plus ");
+            System.err.println("Le serveur ne rï¿½pond plus ");
         }
     }
 

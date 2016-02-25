@@ -7,6 +7,10 @@ import java.awt.geom.Ellipse2D;
 
 import Model.Balle;
 
+/**
+ * Vue d'une Balle
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ */
 public class VueBalle implements Vue{
 
 	private Ellipse2D.Double balle;
@@ -25,16 +29,14 @@ public class VueBalle implements Vue{
 	      }
 		
 	}
-	
-	public double getX(){
-		return balle.getX();
-	}
-	
-	public double getY(){
-		return balle.getY();
-	}
 
-	public void setFrame(double newx, double newy, int size, int size2) {
+	/**
+	 * Définit les bordures de la balle dans la vue
+	 * @param newx position en X
+	 * @param newy position en Y
+	 * @param size largeur de la balle
+     */
+	public void setFrame(double newx, double newy, int size) {
 		balle.setFrame(newx, newy, size, size);
 	}
 }

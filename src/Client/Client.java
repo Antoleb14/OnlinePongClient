@@ -1,18 +1,22 @@
 package Client;
-
-/**
- * Created by Clement on 21/01/2016.
- */
 import java.io.*;
 import java.net.*;
 
 import GUI.StartGui;
 import Model.Terrain;
 
+/**
+ * Classe main du client
+ * @author Antoine Lebel, Guillaume Brosse, Clément LeBiez & Nicolas Belleme
+ */
 public class Client {
 
     public static Socket socket = null;
 
+    /**
+     * Point d'entrée de l'application
+     * @param args args
+     */
     public static void main(String[] args) {
     	
         try {
